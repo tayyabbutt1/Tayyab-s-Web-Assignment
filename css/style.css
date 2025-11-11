@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #5a4fcf;
+  --secondary-color: #7d6ff0;
+  --accent-color: #f0f3ff;
+  --text-color: #2c2c2c;
+  --bg-color: #ffffff;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* ===================== HEADER ===================== */
+header {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all var(--transition-speed);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ===================== MAIN ===================== */
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ===================== INTRO ===================== */
+.intro {
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid var(--secondary-color);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.profile-pic:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== SKILLS ===================== */
+.skills {
+  animation: slideIn 1s ease-in;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-item span {
+  font-weight: 600;
+}
+
+.bar {
+  background: #e4e7f5;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+  margin-top: 5px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  width: 0;
+  transition: width 1s ease-in-out;
+  border-radius: 10px;
+}
+
+/* ===================== PROJECTS ===================== */
+.projects {
+  display: grid;
+  gap: 25px;
+  animation: slideIn 1s ease-in;
+}
+
+.project {
+  background: var(--accent-color);
+  border-left: 6px solid var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  transition: all var(--transition-speed);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.project h3 {
+  color: var(--primary-color);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform var(--transition-speed), opacity var(--transition-speed);
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* ===================== MEDIA ===================== */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: var(--primary-color);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================== THEME TOGGLE ===================== */
+.theme-toggle {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* ===================== DARK THEME ===================== */
+.dark-theme {
+  --primary-color: #8b80ff;
+  --secondary-color: #a497ff;
+  --accent-color: #1b1b2a;
+  --text-color: #f6f6f6;
+  --bg-color: #0f0f1a;
+}
+
+.dark-theme body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark-theme header,
+.dark-theme footer {
+  background: linear-gradient(90deg, #1e1e2f, #2d2d44);
+  color: #fff;
+}
+
+.dark-theme .project {
+  background: var(--accent-color);
+  border-left-color: var(--secondary-color);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .project h3 {
+  color: var(--secondary-color);
+}
+
+.dark-theme .btn {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  color: #fff;
+}
+
+.dark-theme .filter-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.dark-theme .filter-btn.active,
+.dark-theme .filter-btn:hover {
+  background: var(--secondary-color);
+}
+
+/* ===================== CLOCK ===================== */
+.clock {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: var(--secondary-color);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+/* ===================== PROJECT FILTER ===================== */
+.filter-container {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.filter-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+}
